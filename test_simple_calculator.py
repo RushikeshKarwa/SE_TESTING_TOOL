@@ -82,7 +82,108 @@ class DivisionTestSuite(unittest.TestCase):
         with self.assertRaises(ZeroDivisionError):
             self.calculator.divide(10, 0)
             
+class FactorialTestSuite(unittest.TestCase):
+    def setUp(self):
+        """ Executed before every test case """
+        self.calculator = SimpleCalculator()
 
+    def test_zero(self):
+        result = self.calculator.factorial(0)
+        self.assertEqual(result, 1)
+    
+    def test_one(self):
+    	result = self.calculator.factorial(1)
+    	self.assertEqual(result, 1)
+    
+    def test_no_greater_than_one(self):
+    	result = self.calculator.factorial(5)
+    	self.assertEqual(result, 120)
+    
+    def test_negative_no(self):
+    	result = self.calculator.factorial(-5)
+    	self.assertEqual(result, "ERROR")
+    
+    def test_integer_string(self):
+    	result = self.calculator.factorial("10")
+    	self.assertEqual(result, "ERROR")
+    	
+class SineTestSuite(unittest.TestCase):
+	def setUp(self):
+        	""" Executed before every test case """
+        	self.calculator = SimpleCalculator()
+        
+	def test_thirty(self):
+        	result = self.calculator.sin(30)
+        	self.assertEqual(result, 0.5)
+        	
+	def test_ninty(self):
+		result = self.calculator.sin(90)
+		self.assertEqual(result, 1)
+	
+	def test_negative(self):
+		result = self.calculator.sin(-90)
+		self.assertEqual(result, -1)
+	
+	def test_float(self):
+		result= self.calculator.sin(50.55)
+		self.assertEqual(result, 0.8)
+		
+	def test_string(self):
+		result=self.calculator.sin("35")
+		self.assertEqual(result,"ERROR")
+		
+class CosineTestSuite(unittest.TestCase):
+	def setUp(self):
+        	""" Executed before every test case """
+        	self.calculator = SimpleCalculator()
+        
+	def test_thirty(self):
+        	result = self.calculator.cos(30)
+        	self.assertEqual(result, 0.9)
+        	
+	def test_ninty(self):
+		result = self.calculator.cos(90)
+		self.assertEqual(result, 0.0)
+	
+	def test_negative(self):
+		result = self.calculator.cos(-90)
+		self.assertEqual(result, 0.0)
+	
+	def test_float(self):
+		result= self.calculator.cos(50.55)
+		self.assertEqual(result, 0.6)
+		
+	def test_string(self):
+		result=self.calculator.cos("35")
+		self.assertEqual(result,"ERROR")
+		
+class TanTestSuite(unittest.TestCase):
+	def setUp(self):
+        	""" Executed before every test case """
+        	self.calculator = SimpleCalculator()
+        
+	def test_thirty(self):
+        	result = self.calculator.tan(30)
+        	self.assertEqual(result, 0.6)
+        	
+	def test_forty_five(self):
+		result = self.calculator.tan(45)
+		self.assertEqual(result, 1)
+	
+	def test_negative(self):
+		result = self.calculator.tan(-45)
+		self.assertEqual(result, -1)
+	
+	def test_float(self):
+		result= self.calculator.tan(50.55)
+		self.assertEqual(result, 1.2)
+		
+	def test_string(self):
+		result=self.calculator.tan("35")
+		self.assertEqual(result,"ERROR")
+
+		
+				
 
 if __name__ == "__main__":
     unittest.main()
