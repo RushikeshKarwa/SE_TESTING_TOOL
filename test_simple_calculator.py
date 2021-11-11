@@ -14,7 +14,7 @@ class AdditionTestSuite(unittest.TestCase):
 
     def test_addition_integer_string(self):
         result = self.calculator.sum(5, "6")
-        self.assertEqual(result, "ERROR")
+        self.assertEqual(result, 11 ,"This will throw error cannot add string and no")
 
     def test_addition_negative_integers(self):
         result = self.calculator.sum(-5, -6)
@@ -37,7 +37,7 @@ class SubtractionTestSuite(unittest.TestCase):
 
     def test_subtraction_negative_integers(self):
         result = self.calculator.subtract(-5, -6)
-        self.assertEqual(result, 1,"value compared result is wrong")
+        self.assertEqual(result, 2,"Test case failed")
         self.assertNotEqual(result, -11)        
 
 
@@ -48,7 +48,7 @@ class MultiplicationTestSuite(unittest.TestCase):
 
     def test_multiplication_two_integers(self):
         result = self.calculator.multiply(6, 5)
-        self.assertEqual(result, 30)
+        self.assertEqual(result, 20,"Test case Failed")
 
     def test_multiplication_integer_string(self):
         result = self.calculator.subtract(5, "6")
@@ -76,7 +76,7 @@ class DivisionTestSuite(unittest.TestCase):
     def test_division_negative_integers(self):
         result = self.calculator.divide(-30, -6)
         self.assertEqual(result, 5)
-        self.assertNotEqual(result, -5)  
+        self.assertNotEqual(result, 5,"Test Case Failed")  
 
     def test_divide_by_zero_exception(self):
         with self.assertRaises(ZeroDivisionError):
@@ -101,7 +101,7 @@ class FactorialTestSuite(unittest.TestCase):
     
     def test_negative_no(self):
     	result = self.calculator.factorial(-5)
-    	self.assertEqual(result, "ERROR")
+    	self.assertEqual(result, "120","Factorial for negative no is not defined")
     
     def test_integer_string(self):
     	result = self.calculator.factorial("10")
@@ -182,6 +182,48 @@ class TanTestSuite(unittest.TestCase):
 		result=self.calculator.tan("35")
 		self.assertEqual(result,"ERROR")
 
+class SqrtTestSuite(unittest.TestCase):
+	def setUp(self):
+        	""" Executed before every test case """
+        	self.calculator = SimpleCalculator()
+        
+	def test_positive(self):
+        	result = self.calculator.sqrt(30)
+        	self.assertEqual(result, 5.5)
+        	
+	def test_zero(self):
+		result = self.calculator.sqrt(0)
+		self.assertEqual(result, 0.0)
+	
+	def test_negative(self):
+		result = self.calculator.sqrt(-45)
+		self.assertEqual(result, "ERROR")
+	
+	def test_float(self):
+		result= self.calculator.sqrt(50.55)
+		self.assertEqual(result, 7.1)
+		
+class logTestSuite(unittest.TestCase):
+	def setUp(self):
+        	""" Executed before every test case """
+        	self.calculator = SimpleCalculator()
+        
+	def test_positive(self):
+        	result = self.calculator.log(30)
+        	self.assertEqual(result, 3.4)
+        	
+	def test_zero(self):
+		result = self.calculator.log(0)
+		self.assertEqual(result, "ERROR")
+	
+	def test_negative(self):
+		result = self.calculator.log(-45)
+		self.assertEqual(result, "ERROR")
+	
+	def test_float(self):
+		result= self.calculator.log(50.55)
+		self.assertEqual(result, 3.9)
+		
 		
 				
 

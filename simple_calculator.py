@@ -57,7 +57,23 @@ class SimpleCalculator:
     	else:
     		return "ERROR"
     
-
+    def sqrt(self, a):
+    	if isinstance(a,int) or isinstance(a,float):
+    		if(a>=0):
+    			return round(math.sqrt(a),1)
+    		else:
+    			return "ERROR"
+    	else:
+    		return "ERROR"
+    		
+    def log(self, a):
+    	if isinstance(a,int) or isinstance(a,float):
+    		if(a >0):
+    			return round(math.log(a),1)
+    		else:
+    			return "ERROR"
+    	else:
+    		return "ERROR"
 
     	
     	
